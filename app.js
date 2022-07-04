@@ -2,6 +2,8 @@ const container = document.getElementById('post-load-container');
 container.style.visibility = 'hidden';
 const audioControls = document.getElementById('audio-controls');
 const loadButton = document.getElementById('load-button');
+const loadProgress = document.getElementById('load-progress');
+loadProgress.style.visibility = 'hidden';
 
 const audioFiles = [
 	'crash_11.mp3',
@@ -27,8 +29,10 @@ const audioFiles = [
 	'slushie_1_22.mp3',
 	'twang_11.mp3'
 ];
+loadProgress.max = audioFiles.length;
+
 let trackGroups = {
-	'11': [true, []],
+	'11': [true, []],	
 	'21': [false, []],
 	'22': [false, []],
 	'41': [false, []],
@@ -47,23 +51,38 @@ let audioContext;
 let cachedBuffers = new Array(audioFiles.length).fill(null);
 let fileRequestsRemaining = audioFiles.length;
 let audioSources;
-let isAudioPlaying;
+let isControlsPlaying;
 
 function cacheBuffers() {
 	loadButton.remove();
 
 	audioContext = new AudioContext();
+	loadProgress.style.visibility = 'visible';
 	for (let i = 0; i < audioFiles.length; i++) {
 		const request = new XMLHttpRequest();
 		request.open('GET', 'media/' + audioFiles[i], true);
 		request.responseType = 'arraybuffer';
 
+		let previousPercent = 0;
+		request.onprogress = (e) => {
+			if (e.lengthComputable) {
+				let newPercent = e.loaded / e.total;
+				loadProgress.value += newPercent - previousPercent;
+				previousPercent = newPercent;
+			}
+		}
+
 		request.onload = () => {
+			loadProgress.value += 1 - previousPercent;
 			audioContext.decodeAudioData(request.response,
 				(buffer) => { cachedBuffers[i] = buffer; },
 				(e) => { console.log("Error with decoding audio data" + e.error) });
-			if (--fileRequestsRemaining == 0) container.style.visibility = 'visible';
+			if (--fileRequestsRemaining == 0) {
+				container.style.visibility = 'visible';
+				loadProgress.remove();
+			}
 		}
+
 		request.send();
 		//console.log('requested file ' + audioFiles[i]);
 	}
@@ -82,7 +101,6 @@ function shouldPlayTrack(track) {
 
 function startPlayback() {
 	if (audioContext.state === 'suspended') audioContext.resume();
-
 	audioSources = [];
 	var startTime = audioContext.currentTime;
 	var offset = audioControls.currentTime;
@@ -108,26 +126,15 @@ function stopPlayback() {
 	}
 }
 
-function refreshTrackStates() {
-	stopPlayback();
-	startPlayback();
-}
-
 loadButton.onclick = () => cacheBuffers();
 
 audioControls.onplay = () => {
-	isAudioPlaying = true;
+	isControlsPlaying = true;
 	startPlayback();
 };
 audioControls.onpause = () => {
-	isAudioPlaying = false;
+	isControlsPlaying = false;
 	stopPlayback();
-};
-audioControls.onseeked = () => {
-	if (isAudioPlaying) startPlayback();
-};
-audioControls.onseeking = () => {
-	if (isAudioPlaying) stopPlayback();
 };
 
 var inputs = document.getElementsByTagName("input");
@@ -135,7 +142,10 @@ for (var i = 0; i < inputs.length; i++) {
 	if (inputs[i].type == "checkbox") {
 		inputs[i].onchange = (e) => {
 			trackGroups[e.currentTarget.name][0] = e.currentTarget.checked;
-			refreshTrackStates();
+			if (isControlsPlaying) {
+				stopPlayback();
+				startPlayback();
+			}
 		};
 	}
 }
