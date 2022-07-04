@@ -3,13 +3,15 @@
 <head>
 	<title>SplitPlayer 1st Draft</title>
 	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 </head>
 <body>
-	<span class="audio-player-title">Split Player</span>
+	<div id="push-elements-down"></div>
+	<span id="audio-player-title">Split Player</span>
 	<button id="load-button">Load Audio</button>
 	<progress id="load-progress"></progress>
 	<div id="post-load-container">
-		<audio id="audio-controls" src="media/controls_standin.mp3" preload="metadata" controls muted></audio>
+		<audio id="audio-controls" src="media/controls_standin.mp3" preload="metadata" controls></audio>
 
 		-- 2 Part Split --
 		<div class="group-row">

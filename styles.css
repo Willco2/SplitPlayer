@@ -5,17 +5,26 @@ body {
 	display: flex;
 	background-color: #222;
 	color: #DDD;
-	font-family: 'Arial Rounded MT';
-	font-size: 24px;
-	justify-content: center;
+	font-family: 'Nunito';
+	font-weight: bold;
 	align-items: center;
 	height: 100%;
 	flex-direction: column;
 	margin: 0;
 }
 
-.audio-player-title {
+#push-elements-down {
+	height: 35%;
+}
+
+#audio-player-title {
+	font-size: 32px;
 	margin-bottom: 10px;
+}
+
+#load-progress {
+	width: 50%;
+	height: 32px;
 }
 
 #post-load-container {
@@ -23,6 +32,7 @@ body {
 	flex-direction: column;
 	width: 100%;
 	align-items: center;
+	font-size: 24px;
 }
 
 audio {

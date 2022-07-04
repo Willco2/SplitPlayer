@@ -32,7 +32,7 @@ const audioFiles = [
 loadProgress.max = audioFiles.length;
 
 let trackGroups = {
-	'11': [true, []],	
+	'11': [true, []],
 	'21': [false, []],
 	'22': [false, []],
 	'41': [false, []],
