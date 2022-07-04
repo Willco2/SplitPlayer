@@ -1,12 +1,37 @@
 <!doctype html>
 <html>
 <head>
-	<title>Our Funky HTML Page</title>
+	<title>SplitPlayer 1st Draft</title>
 	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-	<span>Audio Player</span>
-	<audio id="audio-controls" src="media/101.mp3" preload="metadata" controls muted></audio>
+	<span class="audio-player-title">Split Player</span>
+	<button id="load-button">Load Audio</button>
+	<div id="post-load-container">
+		<audio id="audio-controls" src="media/controls_standin.mp3" preload="metadata" controls muted></audio>
+
+		-- 2 Part Split --
+		<div class="group-row">
+			1: <input type="checkbox" name="21">
+		</div>
+		<div class="group-row">
+			2: <input type="checkbox" name="22">
+		</div>
+		<br />
+		-- 4 Part Split --
+		<div class="group-row">
+			1: <input type="checkbox" name="41">
+		</div>
+		<div class="group-row">
+			2: <input type="checkbox" name="42">
+		</div>
+		<div class="group-row">
+			3: <input type="checkbox" name="43">
+		</div>
+		<div class="group-row">
+			4: <input type="checkbox" name="44">
+		</div>
+	</div>
 </body>
 </html>
 <script src="app.js"></script>

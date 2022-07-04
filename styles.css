@@ -14,6 +14,29 @@ body {
 	margin: 0;
 }
 
+.audio-player-title {
+	margin-bottom: 10px;
+}
+
+#post-load-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+}
+
 audio {
-	margin-top: 10px;
+	width: 90%;
+	margin-bottom: 10px;
+}
+
+.group-row {
+	height: 28px;
+	display: flex;
+	align-items: center;
+}
+
+input[type=checkbox] {
+	height: 24px;
+	aspect-ratio: 1;
 }
