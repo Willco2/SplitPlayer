@@ -4,6 +4,7 @@ const audioControls = document.getElementById('audio-controls');
 const loadButton = document.getElementById('load-button');
 const loadProgress = document.getElementById('load-progress');
 loadProgress.style.visibility = 'hidden';
+const playMarkers = document.getElementById('play-marker-container').children;
 
 const audioFiles = [
 	'crash_11.mp3',
@@ -136,9 +137,17 @@ audioControls.onpause = () => {
 	isControlsPlaying = false;
 	stopPlayback();
 };
+audioControls.ontimeupdate = () => {
+	var currentTime = audioControls.currentTime;
+	for (let i = 0; i < playMarkers.length; i++) {
+		let nextMarkerTime = i + 1 != playMarkers.length ? playMarkers[i + 1].name : 99999;
+		isCurrent = currentTime >= playMarkers[i].name && currentTime < nextMarkerTime;
+		playMarkers[i].style.backgroundColor = isCurrent ? '#2D2' : '#DDD';
+	}
+};
 
 var inputs = document.getElementsByTagName("input");
-for (var i = 0; i < inputs.length; i++) {
+for (let i = 0; i < inputs.length; i++) {
 	if (inputs[i].type == "checkbox") {
 		inputs[i].onchange = (e) => {
 			trackGroups[e.currentTarget.name][0] = e.currentTarget.checked;
@@ -148,4 +157,14 @@ for (var i = 0; i < inputs.length; i++) {
 			}
 		};
 	}
+}
+
+for (let i = 0; i < playMarkers.length; i++) {
+	playMarkers[i].onclick = () => {
+		audioControls.currentTime = playMarkers[i].name;
+		if (isControlsPlaying) {
+			stopPlayback();
+			startPlayback();
+		}
+	};
 }

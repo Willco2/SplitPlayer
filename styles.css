@@ -35,6 +35,27 @@ body {
 	font-size: 24px;
 }
 
+#play-marker-container {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.play-marker {
+	font-family: 'Times New Roman';
+	font-weight: bold;
+	font-size: 32px;
+	width: 48px;
+	aspect-ratio: 1;
+	background-color: #DDD;
+	border: 4px solid black;
+	color: #222;
+	margin-left: 4px;
+}
+
+	.play-marker:active {
+		transform: scale(0.9);
+	}
+
 audio {
 	width: 90%;
 	margin-bottom: 10px;
