@@ -1,0 +1,85 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Nunito";
+  font-weight: bold;
+  color: #DDD;
+  background-color: #222;
+  align-items: center;
+  flex-direction: column;
+}
+
+#push-elements-down {
+  height: 25%;
+}
+
+#audio-player-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+#load-progress {
+  width: 50%;
+  height: 32px;
+}
+
+#post-load-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  font-size: 24px;
+}
+
+#play-marker-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.play-marker {
+  font-family: "Times New Roman";
+  font-weight: bold;
+  font-size: 32px;
+  width: 48px;
+  aspect-ratio: 1;
+  background-color: #DDD;
+  border: 4px solid black;
+  color: #222;
+  margin-left: 4px;
+}
+.play-marker:active {
+  transform: scale(0.9);
+}
+
+audio {
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+#count-in-button {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.group-row {
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+input[type=checkbox] {
+  height: 24px;
+  aspect-ratio: 1;
+}/*# sourceMappingURL=styles.css.map */

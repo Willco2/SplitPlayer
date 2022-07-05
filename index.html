@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>SplitPlayer 1st Draft</title>
-	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="dist/styles.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div id="push-elements-down"></div>
@@ -18,8 +19,14 @@
 			<button class="play-marker" name="96">D</button>
 			<button class="play-marker" name="120">E</button>
 		</div>
-		<audio id="audio-controls" src="media/controls_standin.mp3" preload="metadata" controls></audio>
+		<audio id="audio-controls" src="media/controls_standin.mp3" controls controlsList="nodownload"></audio>
+		<button id="count-in-button" onclick="startPlayback(true)">12 Beat Count-In</button>
 
+		<br>
+		<div class="group-row">
+			Click Track: <input type="checkbox" name="00">
+		</div>
+		<br>
 		-- 2 Part Split --
 		<div class="group-row">
 			1: <input type="checkbox" name="21">
@@ -27,7 +34,7 @@
 		<div class="group-row">
 			2: <input type="checkbox" name="22">
 		</div>
-		<br />
+		<br>
 		-- 4 Part Split --
 		<div class="group-row">
 			1: <input type="checkbox" name="41">
@@ -44,4 +51,4 @@
 	</div>
 </body>
 </html>
-<script src="app.js"></script>
+<script src="dist/app.js"></script>
