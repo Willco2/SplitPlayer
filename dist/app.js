@@ -113,14 +113,14 @@ function startPlayback(countIn = false) {
         setTimeout(() => {
             postLoadContainer.style.visibility = 'visible';
             audioControls.play();
-        }, 6000);
+        }, 6000 / audioControls.playbackRate);
     }
     audioSources = [];
     let startTime = audioContext.currentTime;
     let offset = audioControls.currentTime;
     for (let i = 0; i < cachedBuffers.length; i++) {
         if (shouldPlayTrack(i) || (countIn && i == 0)) {
-            let delay = (countIn && i != 0) ? 5.95 : 0;
+            let delay = (countIn && i != 0) ? 5.95 / audioControls.playbackRate : 0;
             //console.log("playing back " + audioFiles[i] + " at " + (offset + delay));
             let audioSource = new AudioBufferSourceNode(audioContext, { buffer: cachedBuffers[i] });
             audioSource.playbackRate.value = audioControls.playbackRate;
