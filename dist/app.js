@@ -56,8 +56,6 @@ let fileRequestsRemaining = audioFiles.length;
 let audioSources = [];
 let gainNode;
 let isControlsPlaying;
-let countInBuffer;
-let countInSource;
 let isCountingIn = false;
 function cacheBuffers() {
     loadButton.remove();

@@ -21,7 +21,7 @@ body {
 }
 
 #push-elements-down {
-  height: 25%;
+  height: 20%;
 }
 
 #audio-player-title {
@@ -41,13 +41,11 @@ body {
   align-items: center;
   font-size: 24px;
 }
-
-#play-marker-container {
+#post-load-container #play-marker-container {
   display: flex;
   margin-bottom: 10px;
 }
-
-.play-marker {
+#post-load-container #play-marker-container .play-marker {
   font-family: "Times New Roman";
   font-weight: bold;
   font-size: 32px;
@@ -58,28 +56,24 @@ body {
   color: #222;
   margin-left: 4px;
 }
-.play-marker:active {
+#post-load-container #play-marker-container .play-marker:active {
   transform: scale(0.9);
 }
-
-audio {
+#post-load-container audio {
   width: 90%;
   margin-bottom: 10px;
 }
-
-#count-in-button {
+#post-load-container #count-in-button {
   font-family: "Nunito";
   font-size: 16px;
   font-weight: bold;
 }
-
-.group-row {
+#post-load-container .group-row {
   height: 28px;
   display: flex;
   align-items: center;
 }
-
-input[type=checkbox] {
+#post-load-container .group-row input[type=checkbox] {
   height: 24px;
   aspect-ratio: 1;
 }/*# sourceMappingURL=styles.css.map */

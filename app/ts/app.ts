@@ -58,8 +58,6 @@ let fileRequestsRemaining = audioFiles.length;
 let audioSources : (AudioBufferSourceNode | null)[] = [];
 let gainNode : GainNode;
 let isControlsPlaying : boolean;
-let countInBuffer : AudioBuffer;
-let countInSource : AudioBufferSourceNode;
 let isCountingIn = false;
 
 function cacheBuffers() {
