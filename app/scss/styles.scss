@@ -1,12 +1,12 @@
 @import "globals";
 #audio-player-title {
-	font-size: 32px;
-	margin-bottom: 10px;
+	font-size: 28px;
+	margin-bottom: 8px;
 }
 
 #load-progress {
 	width: 50%;
-	height: 32px;
+	height: 28px;
 }
 
 #everything-container {
@@ -22,22 +22,22 @@
 		flex-direction: column;
 		align-items: center;
 		width: 100%;
-		font-size: 24px;
+		font-size: 20px;
 	
 		#play-marker-container {
 			display: flex;
-			margin-bottom: 10px;
+			margin-bottom: 8px;
 		
 			.play-marker {
 				font-family: 'Times New Roman';
 				font-weight: bold;
-				font-size: 32px;
-				width: 48px;
+				font-size: 28px;
+				width: 42px;
 				aspect-ratio: 1;
 				background-color: #DDD;
-				border: 4px solid black;
+				border: 3px solid black;
 				color: #222;
-				margin-left: 4px;
+				margin-left: 3px;
 			
 				&:active {
 					transform: scale(0.9);
@@ -47,7 +47,7 @@
 	
 		audio {
 			width: 90%;
-			margin-bottom: 10px;
+			margin-bottom: 8px;
 		}
 	
 		#count-in-button {
@@ -68,16 +68,16 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				padding-bottom: 8px;
+				padding-bottom: 6px;
 				width: 100%;
 	
 				.group-row {
-					height: 28px;
+					height: 24px;
 					display: flex;
 					align-items: center;
 			
 					input[type=checkbox] {
-						height: 24px;
+						height: 20px;
 						aspect-ratio: 1;
 					}
 				}
