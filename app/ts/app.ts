@@ -22,7 +22,6 @@ const audioFiles = [
 	"pang_11.mp3",
 	"sizz_21.mp3",
 	"sizz_22.mp3",
-	"slushie_1_21.mp3",
 	"slushie_1_22.mp3",
 	"slushie_05_31.mp3",
 	"slushie_05_33.mp3",

@@ -72,18 +72,23 @@ body {
   font-size: 16px;
   font-weight: bold;
 }
-#everything-container #post-load-container .split-container {
+#everything-container #post-load-container #split-controls :first-child .group-row {
+  justify-content: space-between;
+  width: 100%;
+}
+#everything-container #post-load-container #split-controls .split-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 8px;
+  width: 100%;
 }
-#everything-container #post-load-container .split-container .group-row {
+#everything-container #post-load-container #split-controls .split-container .group-row {
   height: 28px;
   display: flex;
   align-items: center;
 }
-#everything-container #post-load-container .split-container .group-row input[type=checkbox] {
+#everything-container #post-load-container #split-controls .split-container .group-row input[type=checkbox] {
   height: 24px;
   aspect-ratio: 1;
 }/*# sourceMappingURL=styles.css.map */
